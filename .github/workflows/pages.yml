@@ -19,17 +19,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Initialize public documentation inputs
         run: |
           git submodule update --init packages/AIMORA.jl
           git submodule update --init packages/AIMORACases.jl
           git submodule update --init packages/AIMORACatalogs.jl
           git submodule update --init references/BPAEMTPReference.jl
-      - uses: julia-actions/setup-julia@v2
+      - uses: julia-actions/setup-julia@v3
         with:
           version: "1.10"
-      - uses: julia-actions/cache@v2
+      - uses: julia-actions/cache@v3
       - name: Instantiate
         run: julia --project=. -e 'using Pkg; Pkg.instantiate()'
       - name: Build

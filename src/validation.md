@@ -5,7 +5,7 @@ Validation separates three systems:
 1. `AIMORA.jl` is the production Julia engine.
 2. `BPAEMTPReference.jl` builds and runs the historical compiled program as an
    external oracle.
-3. Private `AIMORAValidation` aligns cases, stages, variables, units, and
+3. Controlled qualification aligns cases, stages, variables, units, and
    tolerances, then compares results.
 
 The compiled reference is never loaded by a production AIMORA study.

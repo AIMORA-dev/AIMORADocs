@@ -5,8 +5,19 @@ This repository builds the unified documentation website for
 power and energy systems.
 
 The public engine, cases, catalogs, and historical reference are pinned as Git
-submodules. Documentation changes can therefore be tested against exact
-package revisions.
+submodules. Documentation changes are therefore checked against exact public
+package revisions without depending on internal development repositories.
+
+## Structure
+
+```text
+src/                  public Markdown documentation
+make.jl               Documenter build entrypoint
+check.jl              links, structure, API, and publication-boundary checks
+Makefile              local check and build commands
+packages/             pinned public package inputs
+references/           pinned public reference input
+```
 
 ## Local build
 
@@ -14,18 +25,13 @@ package revisions.
 git clone --recurse-submodules https://github.com/AIMORA-dev/AIMORADocs.git
 cd AIMORADocs
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
-julia --project=. make.jl
+make check
+make build
 ```
 
 Open `build/index.html`. GitHub Actions publishes the same build at
 <https://aimora-dev.github.io/AIMORADocs/>.
 
-The central development workspace may reuse its sibling engine checkout:
-
-```bash
-AIMORA_DOCS_ENGINE_PATH=../../packages/AIMORA.jl julia --project=. make.jl
-```
-
-Only public repositories are initialized by the documentation build. The
-private solver is documented as an installation option, but its source is
-never copied into the website.
+Only public repositories and public product information are inputs to this
+website. Internal source, repository names, paths, validation records, and
+development instructions are rejected by `check.jl`.

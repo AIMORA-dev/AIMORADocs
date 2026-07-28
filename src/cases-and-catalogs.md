@@ -3,8 +3,8 @@
 ## Canonical cases
 
 `AIMORACases.jl` is the single public source for examples and benchmark inputs.
-Tests, documentation, and private cross-engine comparisons should reference a
-case revision instead of copying decks.
+Tests and documentation should reference a case revision instead of copying
+decks.
 
 ```julia
 using AIMORACases
@@ -13,8 +13,8 @@ AIMORACases.available_cases()
 AIMORACases.case_path(:emt_rlc_energization)
 ```
 
-Cases are grouped by study, and each catalog row records whether the private
-solver is required and whether the compiled reference can consume it.
+Cases are grouped by study, and each catalog row records its required product
+capabilities and whether the compiled reference can consume it.
 
 ## Equipment catalogs
 

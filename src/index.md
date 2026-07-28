@@ -1,13 +1,13 @@
 # AIMORA
 
-**Analytical Integration for Multiphysics Operations and Response Analysis**
+**Analytical Integration for Multiphase Overvoltage and Response Analysis**
 
 AIMORA is a Julia-native platform for power and energy systems. It combines
-an open engineering core with an optional proprietary numerical solver:
+open engineering interfaces with separately distributed production
+capabilities:
 
 - public study contracts, project schemas, models, cases, catalogs, and
   reporting boundaries;
-- an authorized full engine for production electromagnetic-transient studies;
 - an external compiled BPA EMTP reference for qualification, never for the
   production timestep loop.
 
@@ -21,13 +21,9 @@ platform directions, not present implementation claims.
 | Repository | Visibility | Purpose |
 |---|---:|---|
 | [AIMORA.jl](https://github.com/AIMORA-dev/AIMORA.jl) | Public | Open engine contracts and package entrypoint |
-| `AIMORASolvers.jl` | Private | Proprietary solver source |
 | [BPAEMTPReference.jl](https://github.com/AIMORA-dev/BPAEMTPReference.jl) | Public | Compiled historical reference |
 | [AIMORACases.jl](https://github.com/AIMORA-dev/AIMORACases.jl) | Public | Versioned examples and benchmark inputs |
 | [AIMORACatalogs.jl](https://github.com/AIMORA-dev/AIMORACatalogs.jl) | Public | Open equipment data and study facets |
-| `AIMORAValidation` | Private | Cross-engine qualification |
-| `AIMORAWorkspace` | Private | Multi-repository development automation |
 
-The secrecy boundary is GitHub repository access control. Authorized local
-workspaces contain normal readable Julia files, so editing, testing, profiling,
-and precompilation do not incur encryption or decryption overhead.
+Installation and licensing information for production capabilities is
+published through the product distribution channel.

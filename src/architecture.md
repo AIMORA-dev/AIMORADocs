@@ -4,18 +4,16 @@
 
 ```text
 AIMORA.jl
-├── core, models, studies, I/O       public
-└── src/julia/solvers                private Git submodule
+├── core, models, studies, I/O       public engineering interfaces
+└── numerical backend boundary       separately distributed capability
 
-BPAEMTPReference.jl                  public external oracle
-AIMORAValidation                     private comparison orchestration
+BPAEMTPReference.jl                  public historical reference
 AIMORACases.jl                       public canonical cases
 AIMORACatalogs.jl                    public model data
 ```
 
-The public engine records a Git commit pointer for the private solver, not its
-files. A public clone therefore contains no proprietary solver blob. An
-authorized recursive clone resolves the same pointer into normal local source.
+Public APIs define typed inputs, state ownership, study orchestration, and
+physical results without exposing distribution internals.
 
 ## Numerical backends
 
