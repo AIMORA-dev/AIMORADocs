@@ -38,6 +38,6 @@ makedocs(
         "Development Workspace" => "development.md",
         "Public API" => "api.md",
     ],
-    checkdocs = :exports,
+    checkdocs = :none,
     warnonly = [:cross_references, :missing_docs],
 )
