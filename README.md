@@ -20,6 +20,12 @@ julia --project=. make.jl
 Open `build/index.html`. GitHub Actions publishes the same build at
 <https://aimora-dev.github.io/AIMORADocs/>.
 
+The central development workspace may reuse its sibling engine checkout:
+
+```bash
+AIMORA_DOCS_ENGINE_PATH=../../packages/AIMORA.jl julia --project=. make.jl
+```
+
 Only public repositories are initialized by the documentation build. The
 private solver is documented as an installation option, but its source is
 never copied into the website.

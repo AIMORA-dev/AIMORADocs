@@ -1,7 +1,13 @@
 using Documenter
 
 const REPOSITORY_ROOT = @__DIR__
-const AIMORA_PATH = joinpath(REPOSITORY_ROOT, "packages", "AIMORA.jl")
+const AIMORA_PATH = abspath(
+    get(
+        ENV,
+        "AIMORA_DOCS_ENGINE_PATH",
+        joinpath(REPOSITORY_ROOT, "packages", "AIMORA.jl"),
+    ),
+)
 
 isfile(joinpath(AIMORA_PATH, "src", "AIMORA.jl")) ||
     error("Initialize packages/AIMORA.jl before building the documentation")
