@@ -9,7 +9,7 @@ const AIMORA_PATH = let
     elseif isfile(joinpath(workspace_candidate, "src", "AIMORA.jl"))
         workspace_candidate
     else
-        joinpath(REPOSITORY_ROOT, "packages", "AIMORA.jl")
+        ""
     end
 end
 
@@ -74,8 +74,8 @@ end
 
 foreach(check_markdown, markdown_files)
 
-isfile(joinpath(AIMORA_PATH, "src", "AIMORA.jl")) ||
-    fail("initialize the public packages/AIMORA.jl input")
+!isempty(AIMORA_PATH) && isfile(joinpath(AIMORA_PATH, "src", "AIMORA.jl")) ||
+    fail("place AIMORA.jl beside this checkout or set AIMORA_DOCS_ENGINE_PATH")
 pushfirst!(LOAD_PATH, AIMORA_PATH)
 using AIMORA
 

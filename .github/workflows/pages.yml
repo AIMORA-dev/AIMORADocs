@@ -20,12 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Initialize public documentation inputs
+      - name: Fetch public engine input
         run: |
-          git submodule update --init packages/AIMORA.jl
-          git submodule update --init packages/AIMORACases.jl
-          git submodule update --init packages/AIMORACatalogs.jl
-          git submodule update --init references/BPAEMTPReference.jl
+          git clone --depth 1 https://github.com/AIMORA-dev/AIMORA.jl.git "$RUNNER_TEMP/AIMORA.jl"
+          echo "AIMORA_DOCS_ENGINE_PATH=$RUNNER_TEMP/AIMORA.jl" >> "$GITHUB_ENV"
       - uses: julia-actions/setup-julia@v3
         with:
           version: "1.10"

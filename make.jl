@@ -9,12 +9,12 @@ const AIMORA_PATH = let
     elseif isfile(joinpath(workspace_candidate, "src", "AIMORA.jl"))
         workspace_candidate
     else
-        joinpath(REPOSITORY_ROOT, "packages", "AIMORA.jl")
+        ""
     end
 end
 
-isfile(joinpath(AIMORA_PATH, "src", "AIMORA.jl")) ||
-    error("Initialize packages/AIMORA.jl before building the documentation")
+!isempty(AIMORA_PATH) && isfile(joinpath(AIMORA_PATH, "src", "AIMORA.jl")) ||
+    error("Place AIMORA.jl beside this checkout or set AIMORA_DOCS_ENGINE_PATH")
 
 pushfirst!(LOAD_PATH, AIMORA_PATH)
 using AIMORA
